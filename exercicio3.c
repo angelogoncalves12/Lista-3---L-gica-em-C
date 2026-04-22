@@ -25,7 +25,7 @@ Se não for, entra em outra lógica que combina **distância** e **chuva**.
   * senão, exibir `ENTREGA COM TAXA`
 
 ### Saídas esperadas
-  * se 
+  * se
 
 * `ENTREGA GRATUITA`
 * `ENTREGA NORMAL`
@@ -33,7 +33,8 @@ Se não for, entra em outra lógica que combina **distância** e **chuva**.
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     float distancia;
     int premium, chuva;
 
@@ -46,19 +47,30 @@ int main() {
     printf("Esta chovendo? (1/0): ");
     scanf("%d", &chuva);
 
-   if (premium == 1 && distancia <= 20){
-    printf ("ENTREGA GRATUITA");
-     if (distancia <=10 && chuva ==0){
-        printf ("ENTREGA NORMAL\n");
-     }
-     else {
-        printf ("ENTREGA COM TAXA");
-     }
-   }
+    if (premium == 1 && distancia <= 20)
+    {
+        printf("ENTREGA GRATUITA");
+    }
+    else if (premium == 0)
+    {
+        if (distancia <= 10 && chuva == 0)
+        {
+            printf("ENTREGA NORMAL\n");
+        }
+        else
+        {
+            printf("ENTREGA COM TAXA\n");
+        }
+    }
+    else if (premium > 1)
+    {
+        printf("FORMATO INVÁLIDO\n");
+    }
 
-   else {
-    printf ("ENTREGA COM TAXA");
-   }
+    else
+    {
+        printf("ENTREGA COM TAXA\n");
+    }
 
     return 0;
 }
